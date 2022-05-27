@@ -1,35 +1,19 @@
 package oop.training;
 
-import oop.training.interfaces.ApiConnector;
-import oop.training.interfaces.Connectable;
-import oop.training.interfaces.DbConnector;
-
 public class App
 {
     public static void main( String[] args )
     {
-        Connectable dbConnector = new DbConnector();
-        Connectable apiConnector = new ApiConnector();
+        MyGeneric<String> myGeneric1 = new MyGeneric<>("Hello");
+        MyGeneric<Integer> myGeneric2 = new MyGeneric<>(123);
 
-        connect(dbConnector);
-        connect(apiConnector);
+        System.out.println(myGeneric1.getClass().getSimpleName());
+        System.out.println(myGeneric2.getClass().getSimpleName());
+        System.out.println(myGeneric1.getItem().getClass().getSimpleName());
+        System.out.println(myGeneric2.getItem().getClass().getSimpleName());
+
+        myGeneric1.printItem();
+        myGeneric2.printItem();
 
     }
-
-    public static void connect(Connectable connectable) {
-        if(connectable instanceof DbConnector) {
-            System.out.println("Trying to connect to DataBase");
-            try {
-                Thread.sleep(2000);
-                connectable.connect();
-                Thread.sleep(2000);
-                connectable.disconnect();
-            } catch (InterruptedException e) {
-                System.out.println("Interrupted exception");
-            }
-        } else {
-            System.out.println(connectable.getClass().getSimpleName() + " is not a DataBase.");
-        }
-    }
-
 }
