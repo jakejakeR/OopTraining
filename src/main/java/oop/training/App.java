@@ -1,19 +1,24 @@
 package oop.training;
 
+import oop.training.abstracts.Circle;
+import oop.training.abstracts.Triangle;
+
 public class App
 {
-    public static void main( String[] args )
-    {
-        MyGeneric<String> myGeneric1 = new MyGeneric<>("Hello");
-        MyGeneric<Integer> myGeneric2 = new MyGeneric<>(123);
+    public static void main( String[] args ) {
 
-        System.out.println(myGeneric1.getClass().getSimpleName());
-        System.out.println(myGeneric2.getClass().getSimpleName());
-        System.out.println(myGeneric1.getItem().getClass().getSimpleName());
-        System.out.println(myGeneric2.getItem().getClass().getSimpleName());
+        Triangle triangle = new Triangle("Triangle");
 
-        myGeneric1.printItem();
-        myGeneric2.printItem();
+        triangle.setBase(10);
+        triangle.setHeight(10);
+
+        System.out.println(triangle.calculateArea());
+
+        Circle circle = new Circle("Circle");
+
+        circle.setDiameter(2 * (1 / Math.sqrt(Math.PI)));
+
+        System.out.println(circle.calculateArea());
 
     }
 }
