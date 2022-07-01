@@ -1,19 +1,12 @@
 package oop.training;
 
-public class App
-{
-    public static void main( String[] args )
-    {
-        MyGeneric<String> myGeneric1 = new MyGeneric<>("Hello");
-        MyGeneric<Integer> myGeneric2 = new MyGeneric<>(123);
+import oop.training.converter.ConvertNumberToWords;
 
-        System.out.println(myGeneric1.getClass().getSimpleName());
-        System.out.println(myGeneric2.getClass().getSimpleName());
-        System.out.println(myGeneric1.getItem().getClass().getSimpleName());
-        System.out.println(myGeneric2.getItem().getClass().getSimpleName());
+public class App {
+    public static void main(String[] args) {
 
-        myGeneric1.printItem();
-        myGeneric2.printItem();
-
+        int numberToConvert = 998;
+        String convertedNumber = ConvertNumberToWords.convertUpToThreeDigits(numberToConvert);
+        System.out.println(numberToConvert + ": " + convertedNumber);
     }
 }
