@@ -1,15 +1,12 @@
 package oop.training;
 
-import oop.training.maps.Maps;
+import oop.training.converter.ConvertNumberToWords;
 
-public class App
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
 
-        Maps.numbers();
-        System.out.println();
-        Maps.tens();
-
+        int numberToConvert = 998;
+        String convertedNumber = ConvertNumberToWords.convertUpToThreeDigits(numberToConvert);
+        System.out.println(numberToConvert + ": " + convertedNumber);
     }
 }
